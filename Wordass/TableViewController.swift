@@ -9,6 +9,8 @@
 import UIKit
 
 class TableViewController: UITableViewController {
+    let WORD_CELL = "WordCell";
+    var todoItems = ["吃饭", "睡觉", "银行"];
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,23 +31,25 @@ class TableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return self.todoItems.count;
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.WORD_CELL, for: indexPath);
 
         // Configure the cell...
+        cell.textLabel?.text = self.todoItems[indexPath.row];
+        cell.detailTextLabel?.text = "待添加内容";  
 
-        return cell
+        return cell;
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
